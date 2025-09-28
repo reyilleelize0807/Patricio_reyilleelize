@@ -252,7 +252,7 @@
     </div>
     
     <!-- Search Form -->
-    <form action="<?=site_url('user/show');?>" method="get" class="search-form">
+    <form action="<?=site_url('/');?>" method="get" class="search-form">
       <?php
       $q = '';
       if(isset($_GET['q'])) {
