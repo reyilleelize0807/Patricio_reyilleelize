@@ -49,7 +49,7 @@ class UserController extends Controller {
             $total_rows,
             $records_per_page,
             $page,
-            site_url('/') . '?q=' . urlencode($q)
+            site_url('user/show') . '?q=' . urlencode($q)
         );
         $data['page'] = $this->pagination->paginate();
 
