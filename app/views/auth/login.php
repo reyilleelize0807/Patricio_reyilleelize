@@ -111,17 +111,17 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         }
 
         .show-btn {
-    position: absolute;
-    left: 120px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    color: var(--primary);
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 0.9rem;
-    }
+        position: absolute;
+        left: 120px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.9rem;
+        }
 
 
         button.submit {

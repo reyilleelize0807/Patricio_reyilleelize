@@ -7,7 +7,8 @@ class UserController extends Controller {
         parent::__construct();
 
         //$this->call->model('UserModel');
-        $this->call->library('pagination'); 
+        $this->pagination = $this->call->library('pagination'); 
+
         $this->call->library('auth'); 
 
         // ✅ Require login
@@ -118,7 +119,7 @@ class UserController extends Controller {
             }
         } else {
             $data['student'] = $students;
-            $this->call->view('update', $data);
+            $this->call->view('Update', $data);
         }
     }
     function delete($id){
