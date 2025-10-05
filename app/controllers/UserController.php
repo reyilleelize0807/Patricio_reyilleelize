@@ -7,8 +7,7 @@ class UserController extends Controller {
         parent::__construct();
 
         //$this->call->model('UserModel');
-        $this->pagination = $this->call->library('pagination'); 
-
+        $this->call->library('pagination'); 
         $this->call->library('auth'); 
 
         // ✅ Require login
