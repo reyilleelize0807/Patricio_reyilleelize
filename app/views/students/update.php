@@ -1,181 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update</title>
-     
-     <style>
-      /* style2.css - Valorant Theme */
-
-:root {
-  --primary: #ff4655; /* Valorant red */
-  --primary-dark: #e03444;
-  --bg: #0f1923;      /* Dark Valorant background */
-  --card-bg: #1c252f;
-  --text: #ece8e1;
-  --muted: #8b8b8b;
-  --radius: 8px;
-}
-
-body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background: var(--bg);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  color: var(--text);
-}
-
-form {
-  background: var(--card-bg);
-  padding: 30px 25px;
-  border-radius: var(--radius);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-  width: 100%;
-  max-width: 340px; /* compact size */
-  text-align: center;
-}
-
-h1 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-label {
-  display: block;
-  text-align: left;
-  margin-bottom: 5px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-input[type="text"],
-input[type="email"] {
-  width: 100%;
-  padding: 10px 2px;
-  margin-bottom: 14px;
-  border: 1px solid #2e3a46;
-  border-radius: var(--radius);
-  font-size: 0.9rem;
-  background: #101823;
-  color: var(--text);
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(255, 70, 85, 0.4);
-  outline: none;
-}
-
-input[type="submit"] {
-  width: 100%;
-  padding: 12px;
-  background: var(--primary);
-  border: none;
-  border-radius: var(--radius);
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-input[type="submit"]:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-}
-
-input[type="submit"]:active {
-  transform: scale(0.98);
-}
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Student</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #1a032d 0%, #3d0c5d 50%, #5b1d82 100%);
+      --card-bg: rgba(255, 255, 255, 0.06);
+      --primary: #c084fc;
+      --primary-hover: #a855f7;
+      --border: rgba(192, 132, 252, 0.5);
+      --text: #f3e8ff;
+      --muted: #a78bfa;
+      --radius: 10px;
+      --input-bg: rgba(255, 255, 255, 0.08);
+      --input-focus: rgba(255, 255, 255, 0.15);
+      --shadow: 0 3px 24px 0 rgba(192, 132, 252, 0.25);
+      --shadow-lg: 0 6px 28px 0 rgba(192, 132, 252, 0.35);
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    }
     body {
       margin: 0;
-      height: 100vh;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: var(--text);
+    }
+    .container {
+      width: 100%;
+      max-width: 420px; /* compact */
+      padding: 16px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 24px; /* compact */
+      backdrop-filter: blur(10px);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    form {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      gap: 16px;
       align-items: center;
-      background-color: #0f172a; /* dark background */
-      font-family: Arial, sans-serif;
-      color: #fff;
     }
-
-    h1 {
-      color: #f43f5e; /* red-pink */
-      margin-bottom: 20px;
+    .input-icon, input, button {
+      width: 100%;
+      max-width: 320px; /* compact */
     }
-
-    .form-container {
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.5);
-      width: 350px;
+    .input-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
     }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #94a3b8;
+    .input-icon i {
+      position: absolute;
+      left: 14px;
+      color: var(--primary);
+      font-size: 1em;
     }
-
     input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: none;
-      background: #0f172a;
-      color: white;
+      padding: 12px 16px 12px 40px;
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      font-size: 0.95rem;
+      background: var(--input-bg);
+      color: var(--text);
     }
-
+    input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--input-focus);
+      box-shadow: var(--shadow-lg);
+    }
     button {
-      width: 100%;
-      padding: 12px;
-      background-color: #f43f5e;
+      background: linear-gradient(90deg, #9333ea, #a855f7, #c084fc);
+      color: #fff;
+      padding: 12px 18px 12px 40px;
       border: none;
-      border-radius: 8px;
-      color: white;
-      font-weight: bold;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
     }
-
+    button i {
+      position: absolute;
+      left: 16px;
+      font-size: 1em;
+      color: #f3e8ff;
+    }
     button:hover {
-      background-color: #e11d48;
+      transform: translateY(-2px);
+      background: var(--primary-hover);
+      box-shadow: var(--shadow-lg);
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--muted);
+    }
+    .back-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-    <h1>Welcome to Update View</h1>
-    <form action="<?=site_url('students/update/'.$student['id']);?>" method="post">
-        <label for="last_name">Last Name:</label><br>
-        <input type="text" id="last_name" name="last_name" value="<?=html_escape($student['last_name']);?>"><br>
-        
-        <label for="first_name">First Name:</label><br>
-        <input type="text" id="first_name" name="first_name" value="<?=html_escape($student['first_name']);?>"><br>
-        
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" value="<?=html_escape($student['email']);?>"><br>
-        
-        <input type="submit" value="Submit">
-    </form>
-
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <h2>Edit Student Info</h2>
+      </div>
+      <form method="POST">
+        <div class="input-icon">
+          <i class="fa fa-user"></i>
+          <input type="text" name="first_name" value="<?= $student['first_name'] ?>" required>
+        </div>
+        <div class="input-icon">
+          <i class="fa fa-user-astronaut"></i>
+          <input type="text" name="last_name" value="<?= $student['last_name'] ?>" required>
+        </div>
+        <div class="input-icon">
+          <i class="fa fa-envelope"></i>
+          <input type="email" name="email" value="<?= $student['email'] ?>" required>
+        </div>
+        <button type="submit"><i class="fa fa-floppy-disk"></i> Update Student Info</button>
+      </form>
+      <a class="back-link" href="<?= site_url().'students' ?>">Back to Students</a>
+    </div>
+  </div>
 </body>
 </html>

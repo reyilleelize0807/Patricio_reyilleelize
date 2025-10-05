@@ -81,7 +81,7 @@ class UserController extends Controller {
                 echo 'Error creating student.';
             }
         } else {
-            $this->call->view('create');
+            $this->call->view('Create');
         }
     }
 

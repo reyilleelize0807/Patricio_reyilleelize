@@ -8,118 +8,201 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body { font-family: 'Rajdhani', sans-serif; }
+        :root {
+        --bg: linear-gradient(135deg, #1a032d 0%, #3d0c5d 50%, #5b1d82 100%);
+        --card-bg: rgba(255, 255, 255, 0.06);
+        --primary: #c084fc;
+        --primary-hover: #a855f7;
+        --border: rgba(192, 132, 252, 0.5);
+        --text: #f3e8ff;
+        --muted: #a78bfa;
+        --radius: 10px;
+        --input-bg: rgba(255, 255, 255, 0.08);
+        --input-focus: rgba(255, 255, 255, 0.15);
+        --shadow: 0 3px 24px 0 rgba(192, 132, 252, 0.25);
+        --shadow-lg: 0 6px 28px 0 rgba(192, 132, 252, 0.35);
+        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
 
-        /* exact same purple color scheme as your register.php */
-        body.bg-theme { background-color: #0a0118; }
+        body {
+        margin: 0;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        color: var(--text);
+        }
 
-        .panel {
-        background: #1a0b2e;
-        padding: 2rem;
-        border-radius: 1rem;
-        box-shadow: 0 20px 40px rgba(24,4,30,0.45);
+        .container {
         width: 100%;
         max-width: 420px;
-        border: 1px solid #a855f7;
+        padding: 16px;
         }
 
-        h1 {
-        color: #a855f7;
+        .card {
+        background: var(--card-bg);
+        border: 1.5px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 28px 24px;
+        backdrop-filter: blur(10px);
+        }
+
+        .header {
+        text-align: center;
+        margin-bottom: 24px;
+        }
+
+        .header h2 {
+        margin: 0;
         font-size: 1.9rem;
         font-weight: 700;
-        text-align: center;
-        margin-bottom: 1.25rem;
-        letter-spacing: .6px;
+        color: var(--primary);
         }
 
-        .field {
+        form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        }
+
+        .input-icon, input, button {
         width: 100%;
-        background: #0a0118;
-        border: 1px solid #4b2a56;
-        color: #f3e8ff;
-        padding: 12px 14px;
-        border-radius: 0.5rem;
-        margin-bottom: 0.9rem;
-        transition: box-shadow .18s ease, border-color .18s ease;
+        max-width: 320px;
         }
 
-        .field::placeholder { color: #9f86c9; }
+        .input-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        }
 
-        .field:focus {
+        .input-icon i {
+        position: absolute;
+        left: 14px;
+        color: var(--primary);
+        font-size: 1em;
+        }
+
+        input {
+        padding: 12px 16px 12px 40px;
+        border-radius: var(--radius);
+        border: 1.5px solid var(--border);
+        font-size: 0.95rem;
+        background: var(--input-bg);
+        color: var(--text);
+        }
+
+        input:focus {
         outline: none;
-        border-color: #a855f7;
-        box-shadow: 0 0 8px #a855f7;
-        background: #0a0118;
+        border-color: var(--primary);
+        background: var(--input-focus);
+        box-shadow: var(--shadow-lg);
         }
 
-        .relative { position: relative; }
+        .relative {
+        position: relative;
+        display: flex;
+        align-items: center;
+        }
 
         .show-btn {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: transparent;
-        border: none;
-        color: #a855f7;
-        font-weight: 700;
-        cursor: pointer;
-        }
+    position: absolute;
+    left: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    }
 
-        .submit {
-        width: 100%;
-        padding: 12px;
-        background: #a855f7;
+
+        button.submit {
+        background: linear-gradient(90deg, #9333ea, #a855f7, #c084fc);
         color: #fff;
-        font-weight: 700;
-        border-radius: 0.5rem;
+        padding: 12px 18px 12px 40px;
         border: none;
+        border-radius: var(--radius);
+        font-size: 0.95rem;
+        font-weight: 700;
         cursor: pointer;
-        transition: background .18s ease, transform .12s ease, box-shadow .12s ease;
-        letter-spacing: .8px;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        position: relative;
         }
 
-        .submit:hover {
-        background: #9333ea;
+        button.submit i {
+        position: absolute;
+        left: 16px;
+        font-size: 1em;
+        color: #f3e8ff;
+        }
+
+        button.submit:hover {
         transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(168,85,247,0.18);
+        background: var(--primary-hover);
+        box-shadow: var(--shadow-lg);
         }
 
         p.hint {
-        color: #bda4e8;
+        color: var(--muted);
         text-align: center;
         margin-top: 0.9rem;
+        font-size: 0.9rem;
         }
-        p.hint a { color: #a855f7; font-weight: 600; text-decoration: none; }
-        p.hint a:hover { color: #c084fc; text-decoration: underline; }
 
-        @media (max-width:420px){
-        .panel { padding: 1.25rem; border-radius: 0.75rem; max-width: 360px; }
-        h1 { font-size: 1.5rem; }
+        p.hint a {
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        }
+
+        p.hint a:hover {
+        color: var(--primary-hover);
+        text-decoration: underline;
         }
     </style>
     </head>
-    <body class="bg-theme flex items-center justify-center min-h-screen">
-
-    <div class="panel" role="region" aria-label="Login form">
-        <h1>LOGIN</h1>
-
-        <!-- keep all PHP/form logic unchanged -->
-        <form method="post" class="space-y-4">
-        <input type="text" name="username" placeholder="Username" required class="field">
-
-        <div class="relative">
-            <input type="password" id="login-password" name="password" placeholder="Password" required class="field pr-16">
-            <button type="button" onclick="togglePassword('login-password', this)" class="show-btn">Show</button>
+    <body>
+    <div class="container">
+        <div class="card" role="region" aria-label="Login form">
+        <div class="header">
+            <h2>Login</h2>
         </div>
 
-        <button type="submit" class="submit">LOGIN</button>
+        <!-- PHP form logic remains intact -->
+        <form method="post">
+            <div class="input-icon">
+            <i class="fa fa-user"></i>
+            <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-icon relative">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="login-password" name="password" placeholder="Password" required>
+            <button type="button" onclick="togglePassword('login-password', this)" class="show-btn">Show</button>
+            </div>
+
+            <button type="submit" class="submit">
+            <i class="fa fa-right-to-bracket"></i> Login
+            </button>
         </form>
 
-        <p class="hint">Don't have an account? <a href="<?= site_url('/') ?>">Register</a></p>
+        <p class="hint">
+            Don't have an account?
+            <a href="<?= site_url('/') ?>">Register</a>
+        </p>
+        </div>
     </div>
 
     <script>
