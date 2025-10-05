@@ -21,6 +21,7 @@
       --shadow-lg: 0 6px 28px 0 rgba(192, 132, 252, 0.35);
       font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
     }
+
     body {
       margin: 0;
       background: var(--bg);
@@ -30,68 +31,80 @@
       min-height: 100vh;
       color: var(--text);
     }
+
     .container {
       width: 100%;
-      max-width: 420px; /* mas maliit */
+      max-width: 420px;
       padding: 16px;
     }
+
     .card {
       background: var(--card-bg);
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 28px 24px; /* mas compact */
+      padding: 28px 24px;
       backdrop-filter: blur(10px);
     }
+
     .header {
       text-align: center;
       margin-bottom: 24px;
     }
+
     .header h2 {
       margin: 0;
-      font-size: 1.8rem; /* mas maliit */
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--primary);
     }
+
     form {
       display: flex;
       flex-direction: column;
-      gap: 16px; /* mas maliit ang gap */
+      gap: 16px;
       align-items: center;
     }
+
     .input-icon, input, button {
       width: 100%;
-      max-width: 320px; /* mas maliit */
+      max-width: 320px;
     }
+
     .input-icon {
       position: relative;
       display: flex;
       align-items: center;
     }
+
     .input-icon i {
       position: absolute;
       left: 14px;
       color: var(--primary);
       font-size: 1em;
     }
+
     input {
-      padding: 12px 16px 12px 40px; /* mas compact */
+      padding: 12px 16px 12px 40px;
       border-radius: var(--radius);
       border: 1.5px solid var(--border);
       font-size: 0.95rem;
       background: var(--input-bg);
       color: var(--text);
+      transition: all 0.3s ease;
     }
+
     input:focus {
       outline: none;
       border-color: var(--primary);
       background: var(--input-focus);
       box-shadow: var(--shadow-lg);
     }
+
     button {
       background: linear-gradient(90deg, #9333ea, #a855f7, #c084fc);
       color: #fff;
-      padding: 12px 18px 12px 40px; /* mas maliit */
+      padding: 12px 18px 12px 40px;
       border: none;
       border-radius: var(--radius);
       font-size: 0.95rem;
@@ -103,28 +116,44 @@
       justify-content: center;
       gap: 8px;
       position: relative;
+      width: 100%;
+      max-width: 320px;
     }
+
     button i {
       position: absolute;
       left: 16px;
       font-size: 1em;
       color: #f3e8ff;
     }
+
     button:hover {
       transform: translateY(-2px);
       background: var(--primary-hover);
       box-shadow: var(--shadow-lg);
     }
+
     .back-link {
       display: inline-block;
       margin-top: 16px;
       font-size: 0.9rem;
       text-decoration: none;
       color: var(--muted);
+      transition: color 0.2s;
     }
+
     .back-link:hover {
       color: var(--primary);
       text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 24px 18px;
+      }
+      .header h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -134,22 +163,22 @@
       <div class="header">
         <h2>Create Student</h2>
       </div>
-      <form method="POST">
+      <form action="<?=site_url('students/create');?>" method="post">
         <div class="input-icon">
           <i class="fa fa-user"></i>
-          <input type="text" name="first_name" placeholder="First Name" required>
+          <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
         </div>
         <div class="input-icon">
           <i class="fa fa-user-astronaut"></i>
-          <input type="text" name="last_name" placeholder="Last Name" required>
+          <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
         </div>
         <div class="input-icon">
           <i class="fa fa-envelope"></i>
-          <input type="email" name="email" placeholder="Email" required>
+          <input type="email" id="email" name="email" placeholder="Email" required>
         </div>
         <button type="submit"><i class="fa fa-plus"></i> Add Student</button>
       </form>
-      <a class="back-link" href="<?= site_url().'user/show' ?>">Back to Students</a>
+      <a class="back-link" href="<?= site_url().'students' ?>">Back to Students</a>
     </div>
   </div>
 </body>

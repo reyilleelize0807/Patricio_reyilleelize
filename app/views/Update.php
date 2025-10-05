@@ -149,7 +149,7 @@
         </div>
         <button type="submit"><i class="fa fa-floppy-disk"></i> Update Student Info</button>
       </form>
-      <a class="back-link" href="<?= site_url().'user/show' ?>">Back to Students</a>
+      <a class="back-link" href="<?= site_url().'students' ?>">Back to Students</a>
     </div>
   </div>
 </body>
