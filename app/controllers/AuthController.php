@@ -71,7 +71,7 @@ public function dashboard()
             'next_link'      => 'Next →',
             'prev_link'      => '← Prev',
             'page_delimiter' => '&page='
-        ]);
+        ]);     
 
         $this->pagination->set_theme('default');
         $this->pagination->initialize(
